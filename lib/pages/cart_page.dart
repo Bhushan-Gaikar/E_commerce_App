@@ -29,7 +29,6 @@ class _CartPageState extends State<CartPage> {
               itemCount: value.getUserCart().length,
               itemBuilder: (context,index) {
             Shoe individualShoe = value.getUserCart()[index];
-
             return CartItem(shoe: individualShoe);
           }))
         ],

@@ -50,7 +50,15 @@ class ShoeTile extends StatelessWidget {
                     Text(shoe.name,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
 
                     // price
-                    Text('\$' + shoe.price,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey),)
+                    Text('\$' + shoe.price,style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey),),
+
+                    Row(
+                      children: [
+                        Text('Quantity: ${shoe.quantity}')
+                      ],
+                    ),
+
+
                   ],
                 ),
 

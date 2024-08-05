@@ -5,16 +5,15 @@ import 'package:sneakertute/models/shoe.dart';
 
 class CartItem extends StatefulWidget {
   Shoe shoe;
-  CartItem({super.key,required this.shoe});
+  CartItem({super.key, required this.shoe});
 
   @override
   State<CartItem> createState() => _CartItemState();
 }
 
 class _CartItemState extends State<CartItem> {
-
-  void removeItemFromCart(){
-    Provider.of<Cart>(context,listen: false).remobeItemFromCart(widget.shoe);
+  void removeItemFromCart() {
+    Provider.of<Cart>(context, listen: false).removeItemFromCart(widget.shoe);
   }
 
   @override
@@ -27,7 +26,17 @@ class _CartItemState extends State<CartItem> {
       margin: const EdgeInsets.only(bottom: 10),
       child: ListTile(
         leading: Image.asset(widget.shoe.imagePath),
-        title: Text(widget.shoe.name),
+        title: Row(children: [
+          Text(widget.shoe.name),
+          const SizedBox(width: 15),
+          Text(
+            '${widget.shoe.quantity}',
+            style: const TextStyle(fontSize: 15),
+          ),
+          const SizedBox(
+            width: 15,
+          ),
+        ]),
         subtitle: Text(widget.shoe.price),
         trailing: IconButton(
           icon: const Icon(Icons.delete),
