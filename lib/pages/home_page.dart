@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sneakertute/components/bottom_nav_bar.dart';
 import 'package:sneakertute/pages/cart_page.dart';
+import 'package:sneakertute/pages/profile_page.dart';
 import 'package:sneakertute/pages/shop_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -26,6 +27,8 @@ class _HomePageState extends State<HomePage> {
     const ShopPage(),
 
     const CartPage(),
+
+    const ProfilePage(),
   ];
 
   @override
