@@ -4,6 +4,8 @@ import 'package:sneakertute/pages/cart_page.dart';
 import 'package:sneakertute/pages/profile_page.dart';
 import 'package:sneakertute/pages/shop_page.dart';
 
+import 'category_page.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -12,22 +14,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   int _selectedIndex = 0;
 
-  void navigateBottomBar(int index){
+  void navigateBottomBar(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
 
-
-  final List<Widget> _pages =[
-
+  final List<Widget> _pages = [
     const ShopPage(),
-
+    const CategoryPage(),
     const CartPage(),
-
     const ProfilePage(),
   ];
 
@@ -43,17 +41,17 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         leading: Builder(
           builder: (context) => IconButton(
-                onPressed: (){
-                  Scaffold.of(context).openDrawer();
-                },
-                icon: const Padding(
-                  padding: EdgeInsets.only(left:12.0),
-                  child: Icon(
-                    Icons.menu,
-                    color: Colors.black,
-                  ),
-                ),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
+            icon: const Padding(
+              padding: EdgeInsets.only(left: 12.0),
+              child: Icon(
+                Icons.menu,
+                color: Colors.black,
+              ),
             ),
+          ),
         ),
       ),
       drawer: Drawer(
@@ -64,40 +62,56 @@ class _HomePageState extends State<HomePage> {
             Column(
               children: [
                 DrawerHeader(
-                    child: Image.asset('assets/images/Nike.png',)
-                ),
+                    child: Image.asset(
+                  'assets/images/Nike.png',
+                )),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 25.0),
                   child: Divider(
                     color: Colors.grey[800],
                   ),
                 ),
-
                 const Padding(
-                  padding: EdgeInsets.only(left:25.0),
+                  padding: EdgeInsets.only(left: 25.0),
                   child: ListTile(
-                    leading: Icon(Icons.home,color: Colors.white,),
-                    title: Text('Home',style: TextStyle(color: Colors.white),),
+                    leading: Icon(
+                      Icons.home,
+                      color: Colors.white,
+                    ),
+                    title: Text(
+                      'Home',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
-
                 const Padding(
-                  padding: EdgeInsets.only(left:25.0),
+                  padding: EdgeInsets.only(left: 25.0),
                   child: ListTile(
-                    leading: Icon(Icons.info,color: Colors.white,),
-                    title: Text('About',style: TextStyle(color: Colors.white),),
-                  ),
+                    leading: Icon(
+                      Icons.info,
+                      color: Colors.white,
+                    ),
+                    title: Text(
+                      'About',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                ),
                 ),
               ],
             ),
             const Padding(
-              padding: EdgeInsets.only(left:25.0,bottom: 25.0),
+              padding: EdgeInsets.only(left: 25.0, bottom: 25.0),
               child: ListTile(
-                leading: Icon(Icons.logout,color: Colors.white,),
-                title: Text('LogOut',style: TextStyle(color: Colors.white),),
+                leading: Icon(
+                  Icons.logout,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  'LogOut',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ),
-
           ],
         ),
       ),
