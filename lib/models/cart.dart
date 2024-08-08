@@ -62,7 +62,7 @@ class Cart extends ChangeNotifier{
 
   void removeItemFromCart(Shoe shoe){
     userCart.remove(shoe);
-    shoe.quantity=0;
+    shoe.quantity=1;
     notifyListeners();
   }
 

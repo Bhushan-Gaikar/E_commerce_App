@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:sneakertute/components/bottom_nav_bar.dart';
 import 'package:sneakertute/pages/cart_page.dart';
 import 'package:sneakertute/pages/profile_page.dart';
 import 'package:sneakertute/pages/shop_page.dart';
 
+import '../provider/tab_provider.dart';
 import 'category_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -31,11 +33,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final tabProvider = Provider.of<TabProvider>(context);
     return Scaffold(
       backgroundColor: Colors.grey[300],
-      bottomNavigationBar: MyBottomNavBar(
-        onTabChange: (index) => navigateBottomBar(index),
-      ),
+      bottomNavigationBar: MyBottomNavBar(),
+      // bottomNavigationBar: tabProvider.changeTab(_selectedIndex),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -115,7 +117,7 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      body: _pages[_selectedIndex],
+      body: _pages[tabProvider.currentIndex],
     );
   }
 }

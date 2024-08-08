@@ -8,7 +8,7 @@ class BackGroundTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       color: backgroundColor,
-      child: Icon(icondata,size: 34,),
+      child: Icon(icondata,size: 34,color: Colors.white,),
     );
   }
 }

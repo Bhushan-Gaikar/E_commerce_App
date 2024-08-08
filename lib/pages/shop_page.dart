@@ -4,6 +4,10 @@ import 'package:sneakertute/components/shoe_tile.dart';
 import 'package:sneakertute/models/cart.dart';
 import 'package:sneakertute/models/shoe.dart';
 
+import '../components/bottom_nav_bar.dart';
+import '../provider/tab_provider.dart';
+import 'cart_page.dart';
+
 class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
 
@@ -13,17 +17,17 @@ class ShopPage extends StatefulWidget {
 
 class _ShopPageState extends State<ShopPage> {
 
-  void addShoeToCart(Shoe shoe){
-
+  MyBottomNavBar? navbar;
+  void addShoeToCart(Shoe shoe, BuildContext context){
+    
     Provider.of<Cart>(context,listen: false).addItemToCart(shoe);
-
-    showDialog(
-        context: context,
-        builder: (context) =>const AlertDialog(
-          title: Text('Successfully added!'),
-          content: Text('Check your cart'),
-        ),
-    );
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Item Added In Cart'),
+      action: SnackBarAction(
+          label: "View Cart",
+          onPressed: (){
+            Provider.of<TabProvider>(context,listen: false).changeTab(2);
+          }),
+    ));
   }
 
   @override
@@ -82,7 +86,7 @@ class _ShopPageState extends State<ShopPage> {
 
                     return ShoeTile(
                       shoe: shoe,
-                      onTap: () => addShoeToCart(shoe),
+                      onTap: () => addShoeToCart(shoe,context),
                     );
                   }),
 

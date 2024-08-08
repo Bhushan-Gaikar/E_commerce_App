@@ -5,7 +5,7 @@ import '../models/backgroundtile.dart';
 class CategoryPage extends StatelessWidget {
   CategoryPage({super.key});
 
-  List<StaggeredTile> _cardTile = <StaggeredTile> [
+ final List<StaggeredTile> _cardTile = <StaggeredTile> [
     StaggeredTile.count(2, 2),
     StaggeredTile.count(2, 2),
     StaggeredTile.count(2, 2),
@@ -18,7 +18,7 @@ class CategoryPage extends StatelessWidget {
     StaggeredTile.count(2, 2),
   ];
 
-  List<Widget>_listTile = <Widget> [
+  final List<Widget>_listTile = <Widget> [
     BackGroundTile(backgroundColor: Colors.red, icondata: Icons.home),
     BackGroundTile(backgroundColor: Colors.orange, icondata: Icons.ac_unit),
     BackGroundTile(backgroundColor: Colors.pink, icondata: Icons.landscape),
